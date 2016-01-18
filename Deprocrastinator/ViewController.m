@@ -60,14 +60,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
 }
 
-
-
-
 - (IBAction)onEditTapped:(UIBarButtonItem *)sender {
+
+    if (self.editing) {
+        UIAlertController *alertContoller = [UIAlertController alertControllerWithTitle:@"Are you sure you want to delete?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    }
 
     if (self.editing) {
         self.editing = false;
@@ -82,9 +84,7 @@
         sender.style = UIBarButtonItemStyleDone;
         sender.title = @"Done";
     }
-
 }
-
 
 - (IBAction)onAddTapped:(UIButton *)sender {
     
