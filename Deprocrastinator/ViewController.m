@@ -24,6 +24,7 @@
     
     self.listArray = [NSMutableArray arrayWithObjects:
                       @"Wash Car",
+                      @"Watch TV",
                       @"Drink Beer",
                       @"Drink More Beer",
                       nil];
@@ -43,20 +44,28 @@
     return cell;
 }
 
-//-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-//{
-//    NSString *listItem = [self.listArray objectAtIndex:sourceIndexPath.row];
-//    [self.listArray removeObject:listItem];
-//    [self.listArray insertObject:listItem atIndex:destinationIndexPath.row];
-//
-//    [self.tableView reloadData];
-//}
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    NSString *listItem = [self.listArray objectAtIndex:sourceIndexPath.row];
+    [self.listArray removeObject:listItem];
+    [self.listArray insertObject:listItem atIndex:destinationIndexPath.row];
+
+    [self.tableView reloadData];
+}
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.listArray removeObjectAtIndex:indexPath.row];
     [self.tableView reloadData];
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+}
+
+
+
 
 - (IBAction)onEditTapped:(UIBarButtonItem *)sender {
 
@@ -78,7 +87,14 @@
 
 
 - (IBAction)onAddTapped:(UIButton *)sender {
+    
+    NSString *addToList = self.textField.text;
+    [self.listArray addObject:addToList];
+    [self.tableView reloadData];
+    
 }
+
+
 - (IBAction)dismissKeyboard:(UITextField *)sender {
 }
 
