@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.listArray = [NSMutableArray arrayWithObjects:
                       @"Wash Car",
                       @"Watch TV",
@@ -69,17 +69,15 @@
     [alertContoller addAction:delete];
     
     [self presentViewController:alertContoller animated:YES completion:nil];
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     cell.textLabel.backgroundColor = [UIColor greenColor];
     
-    [self.tableView reloadData];
+ //   [self.tableView reloadData];
 }
 
 - (IBAction)onEditTapped:(UIBarButtonItem *)sender {
@@ -106,7 +104,8 @@
     [self.tableView reloadData];
     
 }
-
+- (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender {
+}
 
 - (IBAction)dismissKeyboard:(UITextField *)sender {
 }

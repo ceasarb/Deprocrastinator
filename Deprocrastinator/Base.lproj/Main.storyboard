@@ -60,6 +60,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="b4n-xn-Gop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="3ez-Mk-z94"/>
                             <constraint firstItem="b4n-xn-Gop" firstAttribute="top" secondItem="fKM-Zz-du1" secondAttribute="bottom" constant="8" id="84S-S1-4wQ"/>
@@ -71,6 +72,9 @@
                             <constraint firstItem="Fqx-Co-QZB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="r63-xy-DTC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b4n-xn-Gop" secondAttribute="trailing" constant="-20" id="rpD-9a-QG0"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Dj5-Li-EIT" appends="YES" id="Htg-fS-w3L"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List" id="ZD5-2s-Prz">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="nlp-t9-LDz">
@@ -87,6 +91,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Dj5-Li-EIT">
+                    <connections>
+                        <action selector="onSwipeRight:" destination="BYZ-38-t0r" id="8We-ow-j3s"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="730.5" y="412.5"/>
         </scene>
