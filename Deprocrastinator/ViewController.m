@@ -55,21 +55,34 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.listArray removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
+    UIAlertController *alertContoller = [UIAlertController alertControllerWithTitle:@"Are you sure you want to delete?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.listArray removeObjectAtIndex:indexPath.row];
+        
+        [self.tableView reloadData];
+    }];
+    
+    [alertContoller addAction:cancel];
+    [alertContoller addAction:delete];
+    
+    [self presentViewController:alertContoller animated:YES completion:nil];
+    
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.textLabel.backgroundColor = [UIColor greenColor];
+    
+    [self.tableView reloadData];
 }
 
 - (IBAction)onEditTapped:(UIBarButtonItem *)sender {
-
-    if (self.editing) {
-        UIAlertController *alertContoller = [UIAlertController alertControllerWithTitle:@"Are you sure you want to delete?" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    }
 
     if (self.editing) {
         self.editing = false;
