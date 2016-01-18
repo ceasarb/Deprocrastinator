@@ -101,23 +101,33 @@
     
     NSString *addToList = self.textField.text;
     [self.listArray addObject:addToList];
+    self.textField.text = @"";
     [self.tableView reloadData];
-    
 }
 
 - (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender {
-    CGPoint point = [sender locationInView:self.view];
+
+    CGPoint point = [sender locationInView:self.tableView];
+
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    cell.textLabel.textColor = [UIColor redColor];
-    
-    [self.tableView reloadData];
-    
-    
+
+    if (cell.textLabel.textColor == [UIColor blackColor]) {
+        cell.textLabel.textColor = [UIColor redColor];
+    }
+    else if (cell.textLabel.textColor == [UIColor redColor]) {
+        cell.textLabel.textColor = [UIColor yellowColor];
+    }
+    else if (cell.textLabel.textColor == [UIColor yellowColor]) {
+        cell.textLabel.textColor = [UIColor greenColor];
+    }
+    else if (cell.textLabel.textColor == [UIColor greenColor]) {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
 }
 
 - (IBAction)dismissKeyboard:(UITextField *)sender {
+
 }
 
 @end
