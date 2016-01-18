@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="51A-ga-xJB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="51A-ga-xJB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -73,7 +73,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="b4n-xn-Gop" secondAttribute="trailing" constant="-20" id="rpD-9a-QG0"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="Dj5-Li-EIT" appends="YES" id="Htg-fS-w3L"/>
+                            <outletCollection property="gestureRecognizers" destination="f6Y-Sz-YhY" appends="YES" id="gwA-bp-Ccc"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="To Do List" id="ZD5-2s-Prz">
@@ -91,9 +91,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="Dj5-Li-EIT">
+                <swipeGestureRecognizer direction="right" id="f6Y-Sz-YhY">
                     <connections>
-                        <action selector="onSwipeRight:" destination="BYZ-38-t0r" id="8We-ow-j3s"/>
+                        <action selector="onSwipeRight:" destination="BYZ-38-t0r" id="Ftt-5L-PDn"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

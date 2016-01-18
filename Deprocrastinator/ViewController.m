@@ -104,7 +104,17 @@
     [self.tableView reloadData];
     
 }
+
 - (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender {
+    CGPoint point = [sender locationInView:self.view];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.textLabel.textColor = [UIColor redColor];
+    
+    [self.tableView reloadData];
+    
+    
 }
 
 - (IBAction)dismissKeyboard:(UITextField *)sender {
