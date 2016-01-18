@@ -25,11 +25,11 @@
     self.listArray = [NSMutableArray arrayWithObjects:
                       @"Wash Car",
                       @"Drink Beer",
-                      @"Dring More Beer",
+                      @"Drink More Beer",
                       nil];
+
+    self.editing = false;
 }
-
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.listArray.count;
@@ -43,13 +43,43 @@
     return cell;
 }
 
+//-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+//{
+//    NSString *listItem = [self.listArray objectAtIndex:sourceIndexPath.row];
+//    [self.listArray removeObject:listItem];
+//    [self.listArray insertObject:listItem atIndex:destinationIndexPath.row];
+//
+//    [self.tableView reloadData];
+//}
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.listArray removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+}
 
 - (IBAction)onEditTapped:(UIBarButtonItem *)sender {
+
+    if (self.editing) {
+        self.editing = false;
+        [self.tableView setEditing:false animated:true];
+        sender.style = UIBarButtonItemStyleDone;
+        sender.title = @"Edit";
+    }
+    else
+    {
+        self.editing = true;
+        [self.tableView setEditing:true animated:true];
+        sender.style = UIBarButtonItemStyleDone;
+        sender.title = @"Done";
+    }
+
 }
 
 
 - (IBAction)onAddTapped:(UIButton *)sender {
+}
+- (IBAction)dismissKeyboard:(UITextField *)sender {
 }
 
 @end
